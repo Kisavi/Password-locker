@@ -1,9 +1,25 @@
 import unittest
 
+from user import User #import  user class
 
-class MyTestCase(unittest.TestCase):
-    def test_something(self):
-        self.assertEqual(True, False)  # add assertion here
+
+class TestUser(unittest.TestCase):
+    """
+    TestUser class defines test cases for the user  class behaviours
+    """
+    def setUp(self):
+        """
+        this method allows us to define instructions that will execute before each test case.
+        Below, we have instructed our method to create a new instance of User class
+        """
+        self.new_user = User("James", "w3#g")
+
+    def test_init(self):
+        """
+        this method tests if our user object has been instantiated correctly
+        """
+        self.assertEqual(self.new_user.user_name, "James")
+        self.assertEqual(self.new_user.password, "w3#g")
 
 
 if __name__ == '__main__':
