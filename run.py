@@ -8,9 +8,13 @@ def create_user(user_name, password):
     return new_user
 
 
-def save_user(user):
+def save_users(user):
     # function to save new user
     user.save_user()
+
+
+def display_users():
+    return User.display_users()
 
 
 def main():
@@ -25,7 +29,8 @@ def main():
         confirm_password = input("Confirm password: ")
 
     else:
-        save_user(create_user(user_name, password))
+        save_users(create_user(user_name, password))  # create and save new user
+        # print(user.password)
         print(f"{user_name}, your account has been created successfully. Proceed to log in")
         login_user_name = input("Enter your username: ")
         login_password = input("Enter your password: ")
@@ -39,10 +44,15 @@ def main():
         print(f"{user_name}, welcome to your account")
         response = input("""
         PRESS:
+        0 to check your credentials for this account
         1 to create a new credential
         2 to view existing credentials
         3 to delete a credential
         """)
+
+        if response == "0":
+            for user in display_users():
+                print(f"Username: {user.user_name}  Password: {password}")
 
 
 main()

@@ -25,6 +25,10 @@ class TestUser(unittest.TestCase):
         self.new_user.save_user()
         self.assertEqual(len(User.user_list), 1)
 
+    def test_display_user(self):
+        # this method checks if we are able to return the saved user credentials
+        self.assertEqual(User.display_users(), User.user_list)
 
-# if __name__ == '__main__':
-#     unittest.main()
+
+if __name__ == '__main__':
+    unittest.main()
