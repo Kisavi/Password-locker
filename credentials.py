@@ -4,7 +4,7 @@ class Credentials:  # This class is a blueprint of credential object and generat
 
     def __init__(self, account, username, password):
         self.account = account
-        self.userName = username
+        self.username = username
         self.password = password
 
     def save_credentials(self):
