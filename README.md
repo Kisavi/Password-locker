@@ -11,18 +11,25 @@
 * On your terminal, run the following commands:
 * git clone https://github.com/Kisavi/Password-locker.git
 * cd Password-locker
-* code .
-## Running the Application
-On your code editor terminal, run the following commands:
-*  $ chmod +x interface.py
-*  $ ./interface.py
+* Run ./run.py
+## Development
+Want to make a contribution to enhance an existing module or fix a bug? Great!
+*  Fork the repo
+*  Create a new branch (git checkout -b improve-feature)
+*  Make the appropriate changes in the files
+*  Add changes to reflect the changes made
+*  Commit your changes (git commit -am 'Improve feature')
+*  Push to the branch (git push origin improve-feature)
+*  Create a Pull Request
 ## Technology Used
 * python3.8
+* unittest (Python test framework)
 ## Known Bugs
-* The application had no known bugs at the time of publishing.
-* Incase you run into one, feel free to make your contributions and create a pull request.
+If you find a bug (the website couldn't handle the query and or gave undesired results), kindly open an issue here by including your search query and the expected result.
+
+If you'd like to request a new function, feel free to do so by opening an issue here. Please include sample queries and their corresponding results.
 ## Contact Information
-* For any inqueries freel free to write to me deniskisavi@gmail.com
+* For any inqueries feel free to write to me deniskisavi@gmail.com
 ## Licence
 * MIT License
 * Copyright (c) 2022 Denis Kisavi
