@@ -11,6 +11,14 @@ class Credentials:  # This class is a blueprint of credential object and generat
         Credentials.credential_list.append(self)
 
     @classmethod
+    def credential_exists(cls, account):
+        # method that returns boolean depending on the existence of credentials
+        for credentials in cls.credential_list:
+            if credentials.account == account:
+                return True  # returns true if there is credentials with the same account name
+        return False
+
+    @classmethod
     def find_by_account(cls, account):
         for credentials in cls.credential_list:
             if credentials.account == account:

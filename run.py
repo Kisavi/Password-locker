@@ -29,6 +29,10 @@ def create_credentials(account, username, password):
 def save_credentials(credentials):
     credentials.save_credentials()
 
+def check_existing_credentials(account):
+    #  method checks for existence of existing credentials with the provided account name and returns boolean
+    return Credentials.credential_exists(account)
+
 
 def search_credentials(account):
     # method that finds existing credentials by account name
@@ -74,8 +78,9 @@ def main():
             PRESS:
             0 to check your credentials for this account
             1 to create a new credential
-            2 to view existing credentials
-            3 to delete a credential
+            2 to search for credentials by account name
+            3 to view existing credentials
+            4 to delete a credential
             """)
 
             if response == "0":
@@ -108,6 +113,11 @@ def main():
 
                 else:
                     print("I really didn't get that. Please use the short codes")
+
+            elif response == "2":
+                search_account = input("Enter the account name for the credentials you want to find: ")
+                if search_credentials(search_account):
+
 
             def repeat():  # method that allow a user repeat a task or exit the program
                 user_response = input("""
