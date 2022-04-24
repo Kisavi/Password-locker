@@ -1,4 +1,5 @@
-# import user
+from user import User
+from credentials import Credentials
 from user import User
 from credentials import Credentials
 
@@ -61,17 +62,35 @@ def main():
 
     else:
         print(f"{user_name}, welcome to your account")
-        response = input("""
-        PRESS:
-        0 to check your credentials for this account
-        1 to create a new credential
-        2 to view existing credentials
-        3 to delete a credential
-        """)
 
-        if response == "0":
-            for user in display_users():
-                print(f"Username: {user.user_name}  Password: {password}")
+        def start():
+            response = input("""
+            PRESS:
+            0 to check your credentials for this account
+            1 to create a new credential
+            2 to view existing credentials
+            3 to delete a credential
+            """)
+
+            if response == "0":
+                for user in display_users():
+                    print(f"Username: {user.user_name}  Password: {password}")
+
+            def repeat():
+                user_response = input("""
+                Would you wish to perform another task? y/n
+                """)
+                if user_response.lower() == "y":
+                    start()
+                elif user_response == "n":
+                    print("Bye for now")
+                else:
+                    print("Press y or n")
+                    repeat()
+
+            repeat()
+
+        start()
 
 
 main()
