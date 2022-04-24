@@ -2,6 +2,7 @@ from user import User
 from credentials import Credentials
 from user import User
 from credentials import Credentials
+from password_generator import PasswordGenerator
 
 
 # user
@@ -77,13 +78,31 @@ def main():
                     print(f"Username: {user.user_name}  Password: {password}")
 
             elif response == "1":
-                print("Provide the details of the new credentials you wish to create")
-                account = input("Account name: ")
-                username = input("Username: ")
-                passcode = input("Password: ")
+                password_response = input("""
+                Press y if you would like us to generate a random password for you
+                n if you would wish to create your own password
+                                          """)
+                if password_response.lower() == "y":
+                    print("Provide the details of the new credentials you wish to create")
+                    account = input("Account name: ")
+                    username = input("Username: ")
+                    pwo = PasswordGenerator()
+                    passcode = pwo.generate()
 
-                save_credentials(create_credentials(account, username, passcode))
-                print(f"New credentials for {account} account created")
+                    save_credentials(create_credentials(account, username, passcode))
+                    print(f"New credentials for {account} account created")
+
+                elif password_response.lower() == "n":
+                    print("Provide the details of the new credentials you wish to create")
+                    account = input("Account name: ")
+                    username = input("Username: ")
+                    passcode = input("Password: ")
+
+                    save_credentials(create_credentials(account, username, passcode))
+                    print(f"New credentials for {account} account created")
+
+                else:
+                    print("I really didn't get that. Please use the short codes")
 
             def repeat():  # method that allow a user repeat a task or exit the program
                 user_response = input("""
