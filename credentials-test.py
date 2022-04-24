@@ -24,8 +24,23 @@ class TestCredentials(unittest.TestCase):
         self.new_credentials.save_credentials()
         self.assertEqual(len(Credentials.credential_list), 1)
 
+    # def test_find_credentials_by_account(self):
+    #     # test if credentials can be searched by account.
+    #     self.new_credentials.save_credentials()  # saving the new credentials
+    #     test_credentials = Credentials("Instagram", "curly", "pass")  # another new credentials_list
+    #     test_credentials.save_credentials()  # saving the new credentials
+    #
+    #     found_credential = Credentials.find_by_account(
+    #         "instagram")  # Pass account to find_by_account() to return existing credentials with the same account name
+    #     self.assertEqual(test_credentials.account,
+    #                      found_credential.account
+    #                      )  # Checks if passwords are same from return credentials and created credentials with same account name
+
+    def test_display_all_credentials(self):
+        # test if nwe are able to return the credentials_list
+        self.assertEqual(Credentials.display_credentials(),
+                         Credentials.credential_list)  # display_credentials() should return the same credentials in our credentials_list
+
 
 if __name__ == '__main__':
     unittest.main()
-
-
