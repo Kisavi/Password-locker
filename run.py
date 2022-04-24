@@ -24,6 +24,10 @@ def create_credentials(account, username, password):
     return new_credentials
 
 
+def save_credentials(credentials):
+    credentials.save_credentials()
+
+
 def main():
     print("Hello and welcome to password locker. Sign up by filling in the required fields.")
     user_name = input("Username: ")
