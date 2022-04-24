@@ -24,6 +24,15 @@ class TestCredentials(unittest.TestCase):
         self.new_credentials.save_credentials()
         self.assertEqual(len(Credentials.credential_list), 1)
 
+    def test_credentials_exist(self):
+        self.new_credentials.save_credentials()  # saving the new credentials
+        test_credentials = Credentials("Instagram", "curly", "pass")  # another new credentials_list
+        test_credentials.save_credentials()  # saving the new credentials
+
+        credential_exists = Credentials.credential_exists("Instagram")
+        self.assertTrue(credential_exists)
+
+
     # def test_find_credentials_by_account(self):
     #     # test if credentials can be searched by account.
     #     self.new_credentials.save_credentials()  # saving the new credentials
