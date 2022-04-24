@@ -41,6 +41,15 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(Credentials.display_credentials(),
                          Credentials.credential_list)  # display_credentials() should return the same credentials in our credentials_list
 
+    def test_delete_credentials(self):
+        # test if we can delete credentials from our list
+        self.new_credentials.save_credentials()  # saving the new credentials
+        test_credentials = Credentials("Instagram", "curly", "pass")  # another new credentials_list
+        test_credentials.save_credentials()  # saving the new credentials
+
+        self.new_credentials.delete_credentials()  # delete a credential object
+        self.assertEqual(len(Credentials.credential_list), 1)   # Two credentials were saved then one deleted. One credential should be left.
+
 
 if __name__ == '__main__':
     unittest.main()

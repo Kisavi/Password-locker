@@ -19,3 +19,6 @@ class Credentials:  # This class is a blueprint of credential object and generat
     @classmethod
     def display_credentials(cls):
         return cls.credential_list
+
+    def delete_credentials(self):
+        Credentials.credential_list.remove(self)

@@ -3,6 +3,7 @@ from user import User
 from credentials import Credentials
 
 
+# user
 def create_user(user_name, password):
     new_user = User(user_name, password)
     return new_user
@@ -15,6 +16,12 @@ def save_users(user):
 
 def display_users():
     return User.display_users()
+
+
+# credentials
+def create_credentials(account, username, password):
+    new_credentials = Credentials(account, username, password)
+    return new_credentials
 
 
 def main():
