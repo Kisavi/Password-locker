@@ -7,44 +7,68 @@ from password_generator import PasswordGenerator
 
 # user
 def create_user(user_name, password):
+    """
+    function to create new user
+    """
     new_user = User(user_name, password)
     return new_user
 
 
 def save_users(user):
-    # function to save new user
+    """
+    function to save new user
+    """
     user.save_user()
 
 
 def display_users():
+    """
+    function to display user details
+    """
     return User.display_users()
 
 
 # credentials
 def create_credentials(account, username, password):
+    """
+    function to create new credentials
+    """
     new_credentials = Credentials(account, username, password)
     return new_credentials
 
 
 def save_credentials(credentials):
+    """
+    function to save credentials
+    """
     credentials.save_credentials()
 
 
 def check_existing_credentials(account):
-    #  method checks for existence of existing credentials with the provided account name and returns boolean
+    """
+    method checks for existence of existing credentials with the provided account name and returns boolean
+    """
     return Credentials.credential_exists(account)
 
 
 def search_credentials(account):
-    # method that finds existing credentials by account name
+    """
+    method that finds existing credentials by account name
+    """
     return Credentials.find_by_account(account)
 
 
 def display_credentials():
+    """
+    function to display saved credentials
+    """
     return Credentials.display_credentials()
 
 
 def delete_credentials(credentials):
+    """
+    function to delete a saved credentials
+    """
     credentials.delete_credentials()
 
 
@@ -74,7 +98,10 @@ def main():
     else:
         print(f"{user_name}, welcome to your account")
 
-        def start():  # method to be called each time a user wants to perform another task
+        def start():
+            """
+            method to be called each time a user wants to perform another task
+            """
             response = input("""
             PRESS:
             0 to check your credentials for this account
@@ -141,12 +168,15 @@ def main():
                 if check_existing_credentials(delete_account):
                     found_credentials = search_credentials(delete_account)
                     delete_credentials(found_credentials)
-                    print(f"Your credentials for {delete_account} have been successfully deleted.")
+                    print(f"Your saved credentials for {delete_account} have been successfully deleted.")
 
                 else:
                     print("No such credentials exist")
 
-            def repeat():  # method that allow a user repeat a task or exit the program
+            def repeat():
+                """
+                method that allow a user repeat a task or exit the program
+                """
                 user_response = input("""
                 Would you wish to perform another task? y/n
                 """)
@@ -155,7 +185,7 @@ def main():
                 elif user_response == "n":
                     print("Bye for now")
                 else:
-                    print("Press y or n")
+                    print("Sorry I didn't get that. Please use the short codes")
                     repeat()
 
             repeat()
@@ -163,4 +193,5 @@ def main():
         start()
 
 
-main()
+if __name__ == '__main__':
+    main()

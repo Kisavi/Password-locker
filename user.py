@@ -2,14 +2,16 @@ class User:
     """
     This class is a blueprint of user object and generates a new instance of a user
     """
-    user_list = []  # empty user list
+    user_list = []  # we will save our user details here
 
     def __init__(self, user_name, password):
         self.user_name = user_name
         self.password = password
 
     def save_user(self):
-        # this method saves a user object in our user_list
+        """
+        this method saves a user object in our user_list
+        """
         User.user_list.append(self)
 
     @classmethod
