@@ -63,7 +63,7 @@ def main():
     else:
         print(f"{user_name}, welcome to your account")
 
-        def start():
+        def start():  # method to be called each time a user wants to perform another task
             response = input("""
             PRESS:
             0 to check your credentials for this account
@@ -76,7 +76,16 @@ def main():
                 for user in display_users():
                     print(f"Username: {user.user_name}  Password: {password}")
 
-            def repeat():
+            elif response == "1":
+                print("Provide the details of the new credentials you wish to create")
+                account = input("Account name: ")
+                username = input("Username: ")
+                passcode = input("Password: ")
+
+                save_credentials(create_credentials(account, username, passcode))
+                print(f"New credentials for {account} account created")
+
+            def repeat():  # method that allow a user repeat a task or exit the program
                 user_response = input("""
                 Would you wish to perform another task? y/n
                 """)
