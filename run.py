@@ -32,6 +32,10 @@ def display_credentials():
     return Credentials.display_credentials()
 
 
+def delete_credentials(credentials):
+    credentials.delete_credentials()
+
+
 def main():
     print("Hello and welcome to password locker. Sign up by filling in the required fields.")
     user_name = input("Username: ")
