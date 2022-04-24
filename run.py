@@ -136,6 +136,16 @@ def main():
                 else:
                     print("You don't seem to have any saved credentials")
 
+            elif response == "4":
+                delete_account = input("Enter the account name of the credentials you wish to delete")
+                if check_existing_credentials(delete_account):
+                    found_credentials = search_credentials(delete_account)
+                    delete_credentials(found_credentials)
+                    print(f"Your credentials for {delete_account} have been successfully deleted.")
+
+                else:
+                    print("No such credentials exist")
+
             def repeat():  # method that allow a user repeat a task or exit the program
                 user_response = input("""
                 Would you wish to perform another task? y/n
