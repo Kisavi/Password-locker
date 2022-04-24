@@ -30,6 +30,11 @@ def save_credentials(credentials):
     credentials.save_credentials()
 
 
+def search_credentials(account):
+    # method that finds existing credentials by account name
+    return Credentials.find_by_account(account)
+
+
 def display_credentials():
     return Credentials.display_credentials()
 
