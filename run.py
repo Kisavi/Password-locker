@@ -119,10 +119,22 @@ def main():
                 search_account = input("Enter the account name for the credentials you want to find: ")
                 if check_existing_credentials(search_account):
                     found_credentials = search_credentials(search_account)
-                    print(f"Account: {found_credentials.account}, Username: {found_credentials.username}, Password: {found_credentials.password}")
+                    print(
+                        f"Account: {found_credentials.account}, Username: {found_credentials.username}, Password: {found_credentials.password}")
 
                 else:
                     print("No search credentials exist")
+
+            elif response == "3":
+                if display_credentials():
+                    print("Your credentials list is:")
+
+                    for credentials in display_credentials():
+                        print(
+                            f"Account: {credentials.account}, Username: {credentials.username}, Password: {credentials.password}")
+
+                else:
+                    print("You don't seem to have any saved credentials")
 
             def repeat():  # method that allow a user repeat a task or exit the program
                 user_response = input("""
