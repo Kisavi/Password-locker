@@ -29,6 +29,7 @@ def create_credentials(account, username, password):
 def save_credentials(credentials):
     credentials.save_credentials()
 
+
 def check_existing_credentials(account):
     #  method checks for existence of existing credentials with the provided account name and returns boolean
     return Credentials.credential_exists(account)
@@ -116,8 +117,12 @@ def main():
 
             elif response == "2":
                 search_account = input("Enter the account name for the credentials you want to find: ")
-                if search_credentials(search_account):
+                if check_existing_credentials(search_account):
+                    found_credentials = search_credentials(search_account)
+                    print(f"Account: {found_credentials.account}, Username: {found_credentials.username}, Password: {found_credentials.password}")
 
+                else:
+                    print("No search credentials exist")
 
             def repeat():  # method that allow a user repeat a task or exit the program
                 user_response = input("""
