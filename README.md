@@ -11,6 +11,8 @@
 * On your terminal, run the following commands:
 * git clone https://github.com/Kisavi/Password-locker.git
 * cd Password-locker
+* Run chmod u+x run.py
+* Run pip install random-password-generator
 * Run ./run.py
 ## Development
 Want to make a contribution to enhance an existing module or fix a bug? Great!
